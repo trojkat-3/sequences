@@ -44,15 +44,17 @@ public class Main {
         for (int i = 1; i <= MAX; i++) {
             list.add(i);
         }
-        IntegersPrinter printerFile=new IntegersPrinter("output/integers.txt");
+        IntegersPrinter printerFile=new IntegersPrinter("output/sequences.txt");
         IntegersPrinter printerStdOut=new IntegersPrinter();
-        printerStdOut.printIntegers(list);
+        printerFile.print(list, "Integers");
+        printerStdOut.print(list,"Integers");
         //Squares
         list.clear();
         for (int i = 1; i * i <= MAX; i++) {
             list.add(i * i);
         }
-        printerFile.printIntegers(list);
+        printerFile.print(list, "Squares");
+        printerStdOut.print(list, "Squares");
         //Primes
         list.clear();
         for (int i = 1; i <= MAX; i++) {
@@ -60,7 +62,8 @@ public class Main {
                 list.add(i);   
             }
         }
-        printerStdOut.printIntegers(list);
+        printerFile.print(list, "Primes");
+        printerStdOut.print(list," Primes");
         //Fibonacci
         list.clear();
         int fib;
@@ -69,6 +72,7 @@ public class Main {
             list.add(fib);
             i++;
         }
-        printerStdOut.printIntegers(list);
+        printerFile.print(list, "Fibonacci numbers");
+        printerStdOut.print(list, "Fibonacci numbers");
     }
 }

@@ -18,6 +18,12 @@ public class IntegersPrinter {
     
     public IntegersPrinter(String filename){
         this.filename=filename;
+        try (FileWriter fr = new FileWriter(filename);) {
+                fr.write("");
+                //fr.close();
+            } catch (IOException e) {
+                System.out.println("Unable to write to file.");
+            }
     }
     
     public IntegersPrinter(){
@@ -33,8 +39,8 @@ public class IntegersPrinter {
         return nd;
     }
 
-    public void printIntegers(ArrayList<Integer> listToOutput) {
-        String listStr = "";
+    public void print(ArrayList<Integer> listToOutput, String header) {
+        String listStr ="----\n"+ header+":\n";
         int max = Collections.max(listToOutput);
         int maxLength = getNumberOfDigits(max);
         // Some fun with numbers
@@ -55,7 +61,7 @@ public class IntegersPrinter {
         listStr = listStr.substring(0, listStr.length() - 2);
         listStr += "\n";
         if (filename!=null) {
-            try (FileWriter fr = new FileWriter(filename);) {
+            try (FileWriter fr = new FileWriter(filename, true);) {
                 /*File f = new File("output/integers.txt");
             if (f.createNewFile()) {
                 System.out.println("File created: '" + f.getName() + "'");
@@ -63,8 +69,7 @@ public class IntegersPrinter {
                 System.out.println("File '" + f.getName() + "' already exists.");
             }
             FileWriter fr = new FileWriter(f);*/
-                fr.write("");
-                fr.write(listStr);
+                fr.append(listStr);
                 //fr.close();
             } catch (IOException e) {
                 System.out.println("Unable to write to file.");
