@@ -1,5 +1,6 @@
 package fancynumbers;
 
+import fancynumbers.sequences.Sequence;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,13 +40,14 @@ public class IntegersPrinter {
         return nd;
     }
 
-    public void print(ArrayList<Integer> listToOutput, String header) {
-        String listStr ="----\n"+ header+":\n";
-        int max = Collections.max(listToOutput);
+    public void print(Sequence sq) {
+        String listStr ="----\n"+ sq.getName()+":\n";
+        ArrayList<Integer> sqList=sq.getSequence();
+        int max = Collections.max(sqList);
         int maxLength = getNumberOfDigits(max);
         // Some fun with numbers
-        for (int i = 0; i < listToOutput.size(); i++) {
-            int number = listToOutput.get(i);
+        for (int i = 0; i < sqList.size(); i++) {
+            int number = sqList.get(i);
             int ndi = getNumberOfDigits(number);
             //if (ndi < maxLength) {
             for (int j = 0; j < maxLength - ndi; j++) {
