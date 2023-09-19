@@ -12,7 +12,17 @@ import java.util.Collections;
 public class IntegersPrinter {
     
     private static final int NUM_IN_LINE = 16;
-    private static final boolean WRITE_TO_FILE = false;
+    //private static final boolean WRITE_TO_FILE = false;
+    
+    private String filename;
+    
+    public IntegersPrinter(String filename){
+        this.filename=filename;
+    }
+    
+    public IntegersPrinter(){
+        this.filename=null;
+    }
     
     private static int getNumberOfDigits(int n) {
         int nd = 0;
@@ -23,7 +33,7 @@ public class IntegersPrinter {
         return nd;
     }
 
-    static void printIntegers(ArrayList<Integer> listToOutput) {
+    public void printIntegers(ArrayList<Integer> listToOutput) {
         String listStr = "";
         int max = Collections.max(listToOutput);
         int maxLength = getNumberOfDigits(max);
@@ -44,8 +54,8 @@ public class IntegersPrinter {
         }
         listStr = listStr.substring(0, listStr.length() - 2);
         listStr += "\n";
-        if (WRITE_TO_FILE) {
-            try (FileWriter fr = new FileWriter("output/integers.txt");) {
+        if (filename!=null) {
+            try (FileWriter fr = new FileWriter(filename);) {
                 /*File f = new File("output/integers.txt");
             if (f.createNewFile()) {
                 System.out.println("File created: '" + f.getName() + "'");

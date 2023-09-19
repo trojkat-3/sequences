@@ -16,17 +16,19 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        //Integers
         ArrayList<Integer> list = new ArrayList<>();
         for (int i = 1; i <= MAX; i++) {
             list.add(i);
         }
-        IntegersPrinter.printIntegers(list);
-
+        IntegersPrinter printerFile=new IntegersPrinter("output/integers.txt");
+        IntegersPrinter printerStdOut=new IntegersPrinter();
+        printerStdOut.printIntegers(list);
+        //Squares
         list.clear();
         for (int i = 1; i * i <= MAX; i++) {
             list.add(i * i);
         }
-        IntegersPrinter.printIntegers(list);
-        IntegersPrinter.
+        printerFile.printIntegers(list);
     }
 }
