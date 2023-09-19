@@ -7,9 +7,11 @@ package fancynumbers.sequences;
  */
 public class Fibonacci extends Sequence {
     
-    private int fibonacci(int n){
+    int[] beginning=new int[2];
+        
+    private int fibonacci(int n){ 
         if (n<=1) {
-            return n;
+            return beginning[n];
         } 
         if (sequence.size()>n){
             return sequence.get(n);
@@ -19,7 +21,13 @@ public class Fibonacci extends Sequence {
     }
 
     public Fibonacci(){
-        super("Fibonacci");
+        this(0,1);
+    }
+    
+    public Fibonacci(int f0,int f1) {
+        super("Fibonacci ("+f0+","+f1+")");
+        beginning[0]=f0;
+        beginning[1]=f1;
         initializeSequence();
     }
     

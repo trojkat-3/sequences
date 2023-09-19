@@ -31,18 +31,25 @@ public class Main {
         //Integers
         Sequence sq=new Integers();
         printerFile.print(sq);
-        printerStdOut.print(sq);
+        //printerStdOut.print(sq);
         //Squares
         sq=new Squares();
         printerFile.print(sq);
-        printerStdOut.print(sq);
+        //printerStdOut.print(sq);
         //Primes
         sq=new Primes();
         printerFile.print(sq);
-        printerStdOut.print(sq);
+        //printerStdOut.print(sq);
         //Fibonacci
         sq=new Fibonacci();
         printerFile.print(sq);
         printerStdOut.print(sq);
+        //Fibonacci 2
+        sq=new Fibonacci(1,3);
+        sq.setMax(3000);
+        printerFile.print(sq);
+        printerStdOut.print(sq);
+        
+        
     }
 }

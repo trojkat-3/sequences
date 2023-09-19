@@ -16,11 +16,17 @@ abstract public class Sequence {
     }
  
     public String getName(){
-        return name;
+        return name+" [max:"+max+"]";
     }
     
     public ArrayList<Integer> getSequence(){
         return sequence;
+    }
+    
+    public void setMax(int max){
+        this.max=max;
+        sequence.clear();
+        initializeSequence();
     }
     
     abstract protected void initializeSequence();
