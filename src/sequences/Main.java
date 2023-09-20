@@ -7,6 +7,8 @@ import sequences.sequence.Primes;
 import sequences.sequence.Sequence;
 import sequences.sequence.Squares;
 import java.util.ArrayList;
+import sequences.exceptions.OutOfBoundsException;
+import sequences.sequence.Arithmetic;
 
 /**
  *
@@ -39,9 +41,10 @@ public class Main {
         //Primes
         sq=new Primes();
         printerFile.print(sq);
-        //printerStdOut.print(sq);
+        printerStdOut.print(sq);
+        ArrayList decomposition=sq.decompose(666);
         //Fibonacci
-        sq=new Fibonacci();
+        /*sq=new Fibonacci();
         printerFile.print(sq);
         printerStdOut.print(sq);
         //Fibonacci 2
@@ -50,6 +53,18 @@ public class Main {
         printerFile.print(sq);
         printerStdOut.print(sq);
         
+        try {
+        System.out.println("Sum: "+ sq.getSum(30));
+        } catch(OutOfBoundsException ex) {
+            System.out.println("The program is runnig ok, however:\n "+ex.getMessage());
+        }
         
+        sq=new Arithmetic(-7, 3);
+        printerStdOut.print(sq);
+        try {
+        System.out.println("Suma: "+sq.getSum(10));
+        } catch(OutOfBoundsException ex) {
+            System.out.println("The program is runnig ok, however:\n "+ex.getMessage());
+        }*/
     }
 }
