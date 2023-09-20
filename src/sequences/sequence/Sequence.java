@@ -1,4 +1,4 @@
-package fancynumbers.sequences;
+package sequences.sequence;
 
 import java.util.ArrayList;
 

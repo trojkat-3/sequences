@@ -1,6 +1,6 @@
-package fancynumbers;
+package sequences;
 
-import fancynumbers.sequences.Sequence;
+import sequences.sequence.Sequence;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;

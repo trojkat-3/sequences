@@ -1,11 +1,11 @@
-package fancynumbers;
+package sequences;
 
 //import java.io.File;
-import fancynumbers.sequences.Fibonacci;
-import fancynumbers.sequences.Integers;
-import fancynumbers.sequences.Primes;
-import fancynumbers.sequences.Sequence;
-import fancynumbers.sequences.Squares;
+import sequences.sequence.Fibonacci;
+import sequences.sequence.Integers;
+import sequences.sequence.Primes;
+import sequences.sequence.Sequence;
+import sequences.sequence.Squares;
 import java.util.ArrayList;
 
 /**
