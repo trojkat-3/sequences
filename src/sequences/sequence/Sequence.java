@@ -2,6 +2,7 @@ package sequences.sequence;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import sequences.exceptions.CantDecomposeException;
 import sequences.exceptions.OutOfBoundsException;
 
 /**
@@ -42,7 +43,8 @@ abstract public class Sequence {
         return sum;
     }
     
-    public ArrayList<Integer> decompose(int n){
+    public ArrayList<Integer> decompose(int n) throws CantDecomposeException{
+        int nBackup=n;
         ArrayList<Integer> lst=new ArrayList<>(sequence); //shallow copy
         Collections.sort(lst, Collections.reverseOrder()); //descending
         ArrayList<Integer> ret=new ArrayList<>();
@@ -55,7 +57,9 @@ abstract public class Sequence {
                 i++;
             }
         }
-        //TODO: if (n>0) => exception
+        if (n>0) {
+            throw new CantDecomposeException(nBackup, name);
+        }
         return ret;
     }
     

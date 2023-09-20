@@ -7,7 +7,11 @@ import sequences.sequence.Primes;
 import sequences.sequence.Sequence;
 import sequences.sequence.Squares;
 import java.util.ArrayList;
+import sequences.exceptions.CantDecomposeException;
 import sequences.exceptions.OutOfBoundsException;
+import sequences.printers.Printer;
+import sequences.printers.PrinterFile;
+import sequences.printers.PrinterStdOut;
 import sequences.sequence.Arithmetic;
 
 /**
@@ -27,8 +31,8 @@ public class Main {
      */
     public static void main(String[] args) {
         
-        IntegersPrinter printerFile=new IntegersPrinter("output/sequences.txt");
-        IntegersPrinter printerStdOut=new IntegersPrinter();
+        Printer printerFile=new PrinterFile("output/sequences.txt");
+        Printer printerStdOut=new PrinterStdOut();
         
         //Integers
         Sequence sq=new Integers();
@@ -40,15 +44,21 @@ public class Main {
         //printerStdOut.print(sq);
         //Primes
         sq=new Primes();
-        printerFile.print(sq);
+        //printerFile.print(sq);
         printerStdOut.print(sq);
-        ArrayList decomposition=sq.decompose(666);
+        try {
+        ArrayList decomposition=sq.decompose(32);
+        printerStdOut.PrintDecomposition(decomposition);
+        } catch(CantDecomposeException ex){
+            System.out.println("We are alvie, but:\n"+ex.getMessage());
+        }
+        
         //Fibonacci
-        /*sq=new Fibonacci();
+        sq=new Fibonacci();
         printerFile.print(sq);
         printerStdOut.print(sq);
         //Fibonacci 2
-        sq=new Fibonacci(1,3);
+        /*sq=new Fibonacci(1,3);
         sq.setMax(3000);
         printerFile.print(sq);
         printerStdOut.print(sq);
