@@ -32,6 +32,10 @@ abstract public class Sequence {
         initializeSequence();
     }
     
+    public int getMax(){
+        return max;
+    }
+    
     public int getSum(int n) throws OutOfBoundsException {
         if (n>sequence.size()){
             throw new OutOfBoundsException("In the `sum` function, max: ["+sequence.size()+"].",n);

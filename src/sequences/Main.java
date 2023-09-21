@@ -9,6 +9,7 @@ import sequences.sequence.Squares;
 import java.util.ArrayList;
 import sequences.exceptions.CantDecomposeException;
 import sequences.exceptions.OutOfBoundsException;
+import sequences.gui.MainFrame;
 import sequences.printers.Printer;
 import sequences.printers.PrinterFile;
 import sequences.printers.PrinterStdOut;
@@ -30,6 +31,13 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new MainFrame().setVisible(true);
+            }
+        });
         
         Printer printerFile=new PrinterFile("output/sequences.txt");
         Printer printerStdOut=new PrinterStdOut();
